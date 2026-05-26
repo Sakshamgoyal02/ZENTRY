@@ -61,7 +61,7 @@ const Hero = () => {
 
       useGSAP(() => {
       gsap.set("#video-frame", {
-      clipPath: "polygon(14% 0, 72% 0, 88% 90%, 0 95%)",
+      clipPath: "polygon(28% 0, 72% 0, 86% 90%, 14% 90%)",
       borderRadius: "0% 0% 40% 10%",
        });
 
@@ -76,6 +76,21 @@ const Hero = () => {
         scrub: true,
       },
     });
+
+      // MOBILE ONLY
+    const mm = gsap.matchMedia();
+
+    mm.add("(max-width: 768px)", () => {
+    gsap.to(".gaming-text", {
+      x: "-30vw",
+      scrollTrigger: {
+        trigger: "#video-frame",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  });
   });
 
     const getVideoSrc = (index) => `/videos/hero-${index}-fixed.mp4`;
@@ -129,7 +144,7 @@ const Hero = () => {
                  onLoadedData={handleVideoLoad}              
                 />
             </div>
-            <h1 className='special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75'>G<b>a</b>ming</h1>
+            <h1 className='gaming-text special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75'>G<b>a</b>ming</h1>
 
             <div className='absolute left-0 top-0 z-40 size-full'>
                 <div className='mt-24 px-5 sm:px-10'>
@@ -141,7 +156,7 @@ const Hero = () => {
                 </div>
             </div>
         </div>
-        <h1 className='special-font hero-heading absolute bottom-5 right-5  text-black'>G<b>a</b>ming</h1>
+        <h1 className='gaming-text special-font hero-heading absolute bottom-5 right-5  text-black'>G<b>a</b>ming</h1>
     </div>
   )
 }

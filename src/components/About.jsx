@@ -8,6 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 const About = () => {
 
      useGSAP(() => {
+  const mm = gsap.matchMedia();
+
+  // DESKTOP
+  mm.add("(min-width: 768px)", () => {
     const clipAnimation = gsap.timeline({
       scrollTrigger: {
         trigger: "#clip",
@@ -25,6 +29,14 @@ const About = () => {
       borderRadius: 0,
     });
   });
+
+  // MOBILE
+  mm.add("(max-width: 767px)", () => {
+    gsap.set(".mask-clip-path", {
+     clearProps: "all"
+    });
+  });
+});
 
   return (
       <div id="about" className="min-h-screen w-screen">
@@ -45,10 +57,10 @@ const About = () => {
         </div>
       </div>
 
-       <div className='h-dvh w-screen' id='clip'>
+       <div className='h-screen w-screen' id='clip'>
          <div className='mask-clip-path about-image'>
             <img src="img/about.webp" alt="Background"
-            className='absolute left-0 top-0 size-full object-cover'
+            className='absolute left-0 top-0 size-full object-cover block'
             />
          </div>
        </div>

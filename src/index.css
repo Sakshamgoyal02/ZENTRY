@@ -73,13 +73,25 @@ body {
   }
 
   .about-subtext {
-    @apply absolute bottom-[-80dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-circular-web text-lg md:max-w-[34rem];
+    @apply absolute left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-circular-web text-lg md:max-w-[34rem];
+  
+    bottom: -90vh;
   }
 
-  .about-image {
-    @apply absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw];
-  }
 
+@media (min-width: 768px) {
+  .about-subtext {
+    bottom: -80dvh;
+  }
+}
+
+ .about-image {
+  @apply relative mx-auto z-20 h-[60vh] w-96 overflow-hidden rounded-3xl md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 md:w-[30vw];
+
+  will-change: transform;
+  transform-origin: center center;
+  backface-visibility: hidden;
+}
   .animated-title {
     @apply flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem];
   }
