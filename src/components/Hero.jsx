@@ -111,7 +111,7 @@ const Hero = () => {
 
         <div id='video-frame' className='relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75'>
             <div>
-                <div className=' mask-clip-path absolute absolute-center z-50 size-64 cursor-pointer overflow-hidden rounded-lg transition-transform duration-500 hover:scale-125'>
+                <div className=' mask-clip-path absolute absolute-center z-50 size-64 max-md:translate-y-2 cursor-pointer overflow-hidden rounded-lg transition-transform duration-500 hover:scale-125'>
                     <div onClick={handleMiniVdClick} 
                      className='origin-center' >
                         <video
